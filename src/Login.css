@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/* page background (use public/design.jpg) */
+body {
+  min-height: 100vh;
+  background-image: url('./design.jpg'); /* Use relative path */
+  background-size: cover;
+  background-position: right;
+}
+
+/* container occupies the full screen */
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  background: #0c1534;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  position: relative;
+  padding: 2rem; /* Added padding on all sides */
+}
+
+/* Left form area */
+.form-section {
+  flex: 1;
+  padding: 3rem 2rem;
+  border-radius: 20px 0 0 20px; /* Rounded on top-left and bottom-left only */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  background: rgba(255, 255, 255, 0.92); /* Subtle white to keep contrast over background */
+  width: 100%; /* Ensure the section takes full width */
+  animation: fadeIn 1s ease-in-out; /* Apply fade-in animation */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0.3s ease; /* Smooth hover effect */
+  position: relative; /* Ensure z-index works properly */
+  z-index: 1; /* Default z-index */
+}
+
+/* Hover effect for the left section */
+.form-section:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  z-index: 10; /* Bring the left section above the right section */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* Start slightly above */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End at normal position */
+  }
+}
+
+/* typography */
+.form-section h1 {
+  font-size: 3rem; /* Increase font size */
+  font-weight: 800; /* Make it bold */
+  font-family: "Poppins", sans-serif; /* Use a beautiful modern font */
+  color: #1565c0; /* Blue color for emphasis */
+  margin-bottom: 1rem; /* Add spacing below */
+  text-align: center; /* Center the title */
+  animation: slideIn 1s ease-in-out; /* Apply slide-in animation */
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(-50px); /* Start slightly to the left */
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0); /* End at normal position */
+    opacity: 1;
+  }
+}
+
+.form-section p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  text-align: center; /* Center the paragraph */
+}
+
+/* Input boxes */
+.ant-input,
+.ant-input-password {
+  border-radius: 12px;
+  padding: 0.8rem;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  width: 100%; /* Take full width of the parent */
+  max-width: 500px; /* Increase maximum width */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.ant-input:focus,
+.ant-input-password:focus {
+  border-color: #b3d1f3;
+  box-shadow: 0 0 0 3px rgba(179, 209, 243, 0.18);
+}
+
+.ant-input:hover,
+.ant-input-password:hover {
+  transform: scale(1.02); /* Slight zoom effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+/* controls */
+.apple-btn {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  padding: 0.9rem;
+  background: #f5f5f5;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.divider {
+  text-align: center;
+  margin: 1rem 0;
+  color: #aaa;
+  font-size: 0.85rem;
+}
+
+.login-btn {
+  background: linear-gradient(90deg, #1565c0 0%, #b3d1f3 100%) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  padding: 0.9rem !important;
+  color: #fff !important;
+  box-shadow: 0 6px 20px rgba(21, 101, 192, 0.12);
+  width: 80%; /* Match input box width */
+  max-width: 300px; /* Limit maximum width */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.login-btn:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 8px 25px rgba(21, 101, 192, 0.3); /* Enhanced shadow */
+}
+
+.signup {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.signup a {
+  color: #1565c0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.signup a:hover {
+  text-decoration: underline;
+}
+
+/* Right image / illustration area */
+.image-section {
+  flex: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url('./design.jpg') no-repeat center center;
+  background-size: cover; /* Ensure the image covers the entire section */
+  border-radius: 0 20px 20px 0; /* Rounded corners only on the right side */
+  display: flex; /* Use flexbox for better alignment */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  margin: 0; /* Remove any margin */
+  padding: 0; /* Remove any padding */
+  position: relative; /* Allow positioning of overlay elements */
+  overflow: hidden; /* Ensure no content spills out */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0.3s ease; /* Smooth hover effect */
+  z-index: 1; /* Default z-index */
+}
+
+/* Hover effect for the right section */
+.image-section:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  z-index: 10; /* Bring the right section above the left section */
+}
+
+/* Remove the ::after pseudo-element */
+.image-section::after {
+  content: ""; /* Remove the text */
+  display: none; /* Ensure it doesn't appear */
+}
+
+/* responsive adjustments */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .form-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .image-section {
+    height: 300px;
+  }
+}
